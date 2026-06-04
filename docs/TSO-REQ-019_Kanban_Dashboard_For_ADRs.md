@@ -1,8 +1,8 @@
 ---
-status: 2-Active
+status: 3-Next
 priority: P1-High
 Project: TraceabilitySystem
-Description: Connects REQ's and ADR's to code and prototypes
+Description:
 ---
 * **[💻 Local Mac Cockpit](vscode://file/Users/s_n_gr/traceability_system/src/CodeFile.java)**
 * **[🌐 GitHub / Tablet Ledger](../src/CodeFile.java)**
@@ -21,9 +21,3 @@ Description: Connects REQ's and ADR's to code and prototypes
 > 
 > **Given** .... , **When** .... , **Then**
 
-## Analytical breakdown
-
-
-| **Problem Solving documentation** | **File** |
-| --------------------------------- | -------- |
-| 2026-06-02                        |          |
