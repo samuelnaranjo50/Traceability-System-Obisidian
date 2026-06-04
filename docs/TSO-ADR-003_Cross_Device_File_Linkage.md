@@ -8,7 +8,7 @@ Description: Time resistant links within artifact for cross device sync
 > 
 > ---
 > *Connections*
-> - **Related REQs:** | [[TSO-REQ-018_Links_to_code_and_prototypes_from_REQ's]] |
+> - **Related REQs:** | [TSO-REQ-018_Links_to_code_and_prototypes_from_REQ's](TSO-REQ-018_Links_to_code_and_prototypes_from_REQ's.md) |
 > - **Related ADRs:** |  |
 > ---
 >  ## **1. The Context (Systemic Problem)**
