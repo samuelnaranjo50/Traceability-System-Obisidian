@@ -8,7 +8,7 @@ Description:
 > 
 > ---
 > *Connections*
-> - **Related REQs:** | [REQ](../REQs/TSO-REQ-018_Links_to_code_and_prototypes_from_REQs) |
+> - **Related REQs:** | [REQ](../REQs/TSO-REQ-018_Links_to_code_and_prototypes_from_REQs.md) |
 > - **Related ADRs:** |  |
 > ---
 >  ## **1. The Context (Systemic Problem)**
