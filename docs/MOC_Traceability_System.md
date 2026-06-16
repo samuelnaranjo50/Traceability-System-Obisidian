@@ -1,7 +1,8 @@
 ```mermaid
 graph LR
+KanPR[Kanban Board Projects] -->  |Status visualization of MOCs| MOC[Maps of Content for the project -MOC-]
 
-MOC[Maps of Content for the project] --> ADRs[ADRs]
+MOC --> ADRs[ADRs]
 MOC --> REQs[REQs]
 MOC -->|Only when used| VS[Vertical Slicing VS Note]
 

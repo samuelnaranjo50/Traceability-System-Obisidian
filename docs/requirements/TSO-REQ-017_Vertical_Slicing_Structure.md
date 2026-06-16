@@ -1,7 +1,7 @@
 ---
-status: 2-Active
-priority: P1-High
 Project: TraceabilitySystem
+status: 4-Done
+priority: P1-High
 Description:
 ---
 ## Story
@@ -14,11 +14,10 @@ Description:
 **So that** I can have a working MVP and iterate over it at a faster pace collecting great feedback.
 ## Acceptance Criteria
 
-> [!todo] **Scenario:**
+> [!success] **Scenario:** Writing a mermaid diagram
 > `Precondition - Action - Outcome`
 > 
-> **Given** the VS is created , **When** Start writing the diagram , **Then** I have clear how should I use the diagram to group the items or visualize the architecture to develop and how those items connect
-
+> **Given** the VS is created , **When** I clicked `cmd/ctrl + m` & select **`Mermaid Code Block (TSO template)`** , **Then** a mermaid block is inserted & I can write the diagram explaining the vertical slicing connection grouping the requirements, explaining the architecture to develop & above it the REQs and ADRs connection links
 
 ## Analytical Breakdown
 

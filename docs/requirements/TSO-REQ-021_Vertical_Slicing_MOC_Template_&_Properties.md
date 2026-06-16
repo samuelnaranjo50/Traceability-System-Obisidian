@@ -6,11 +6,12 @@ Description: Store and visualize Vertical Slicing diagrams
 ---
 ## Connections
 
-| Type                | Route                                                                                                                                                            |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **📕Architecture**  |                                                                                                                                                                  |
-| 📓 **Requirements** |                                                                                                                                                                  |
-| **Others**          | [VS (TSO Template)](../assets/templates/VS%20(TSO%20Template).md) \| [VS MOC dataview (TSO template)](../assets/templates/VS%20MOC%20dataview%20(TSO%20template).md) |
+| Type                | Route                                                                                                                                                                 |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **📕Architecture**  |                                                                                                                                                                       |
+| 📓 **Requirements** |                                                                                                                                                                       |
+| **Others**          | [VS (TSO Template)](../assets/templates/VS%20(TSO%20Template).md) <br>[VS MOC dataview (TSO template)](../assets/templates/VS%20MOC%20dataview%20(TSO%20template).md) |
+
 
 ## Story
 >[!abstract] User Story
