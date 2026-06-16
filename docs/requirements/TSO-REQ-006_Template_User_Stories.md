@@ -1,9 +1,12 @@
 ---
-status: 3-Next
+status: 4-Done
 priority: P0-Critical
 Project: TraceabilitySystem
-Description:
+Description: A gudind template to define user necessity and real world usefulness feature validation
 ---
+
+## Story
+
 > [!abstract] User Story
 > `User type - Action - Output`
 > 
@@ -21,5 +24,9 @@ Description:
 > - I wanto to (Necessity - Action)
 > - So that (Output)
 
-## Analytical Breakdown
 
+--- 
+###### Links: 
+
+- [[User Story (TSO template)]]
+###### Reference :
