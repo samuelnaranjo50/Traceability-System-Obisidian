@@ -1,6 +1,6 @@
 ---
-status: 3-Next
-priority: P1-High
+Status: 5-Deprecated
+Priority: P1-High
 Project: TraceabilitySystem
 Description:
 ---

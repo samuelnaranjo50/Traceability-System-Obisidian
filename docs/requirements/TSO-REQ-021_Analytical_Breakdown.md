@@ -95,9 +95,9 @@ Deprecated ^xS06xPT6
 Pending ^fJ8eqfCm
 
 ## Element Links
-ctF9M9Ac: [[Projects/Traceability_System_Obsidian/docs/requirements/TSO-REQ-021_Analytical_Breakdown.md#Vertical Slicing]]
+ctF9M9Ac: [[TSO-REQ-021_Analytical_Breakdown#Vertical Slicing]]
 
-prcDlbMc: [[Projects/Traceability_System_Obsidian/docs/requirements/TSO-REQ-021_Analytical_Breakdown.md#VS Example with Data View]]
+prcDlbMc: [[TSO-REQ-021_Analytical_Breakdown#VS Example with Data View]]
 
 %%
 ## Drawing

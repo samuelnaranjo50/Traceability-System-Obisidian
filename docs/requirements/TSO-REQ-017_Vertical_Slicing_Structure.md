@@ -1,7 +1,7 @@
 ---
 Project: TraceabilitySystem
-status: 4-Done
-priority: P1-High
+Status: 4-Done
+Priority: P1-High
 Description:
 ---
 ## Story

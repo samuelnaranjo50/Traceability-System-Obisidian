@@ -1,6 +1,6 @@
 ---
-status: 4-Done
-priority: P0-Critical
+Status: 4-Done
+Priority: P0-Critical
 Project: TraceabilitySystem
 Description: Once the ADR'S structure is created you need to develop a ready to use template that translate to every MOC you'll create in the future
 ---

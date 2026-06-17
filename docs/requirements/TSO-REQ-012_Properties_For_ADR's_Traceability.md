@@ -1,14 +1,14 @@
 ---
 Project: TraceabilitySystem
-status: 4-Done
-priority: P1-High
+Status: 4-Done
+Priority: P1-High
 Description:
 ---
 ## Connections
 
 | Type                | Route                                                                              |
 | ------------------- | ---------------------------------------------------------------------------------- |
-| 📓 **Requirements** | `md` [TSO-REQ-001_Maps_of_content_(MOC's)](TSO-REQ-001_Maps_of_content_(MOC's).md) |
+| 📓 **Requirements** | `md` [TSO-REQ-001_Maps_of_content_(MOCs)_&_Template](TSO-REQ-001_Maps_of_content_(MOCs)_&_Template.md) |
 
 ## Story
 

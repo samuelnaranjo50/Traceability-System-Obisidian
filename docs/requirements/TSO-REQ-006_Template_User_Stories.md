@@ -1,6 +1,6 @@
 ---
-status: 4-Done
-priority: P0-Critical
+Status: 4-Done
+Priority: P0-Critical
 Project: TraceabilitySystem
 Description: A gudind template to define user necessity and real world usefulness feature validation
 ---

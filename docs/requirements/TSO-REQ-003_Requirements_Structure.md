@@ -1,6 +1,6 @@
 ---
-status: 4-Done
-priority: P0-Critical
+Status: 4-Done
+Priority: P0-Critical
 Project: TraceabilitySystem
 Description: The container for a specific functionality and a collection of artifacts to ensure that the requirement aligns with the project purpose and market fit
 ---

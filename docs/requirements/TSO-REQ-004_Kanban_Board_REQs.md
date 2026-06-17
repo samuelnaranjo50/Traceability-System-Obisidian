@@ -1,6 +1,6 @@
 ---
-status: 1-Backlog
-priority: P0-Critical
+Status: 3-Next
+Priority: P0-Critical
 Project: TraceabilitySystem
 Description:
 ---

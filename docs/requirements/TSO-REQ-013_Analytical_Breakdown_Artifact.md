@@ -1,6 +1,6 @@
 ---
-status: 4-Done
-priority: P1-High
+Status: 4-Done
+Priority: P1-High
 Project: TraceabilitySystem
 Description: Where can be my problem solving algorithm placed at and how it should behave
 ---

@@ -1,7 +1,7 @@
 ---
 Project: TraceabilitySystem
-status: 4-Done
-priority:
+Status: 4-Done
+Priority:
 Description: Store and visualize Vertical Slicing diagrams
 ---
 ## Connections

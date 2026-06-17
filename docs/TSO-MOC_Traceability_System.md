@@ -1,3 +1,14 @@
+---
+Project: TraceabilitySystem
+Type: MOC
+Status: 2-Active
+Priority: P0-Critical
+Objective: A deterministic, local-first traceability engine that unifies Docs-as-Code infrastructure, business validation, and technical execution into an automated Single Source of Truth. It eliminates cognitive decay and administrative friction by strictly coupling market-proof metrics to immutable code artifacts via zero-maintenance Dataview radars.
+Repository: https://github.com/samuelnaranjo50/Traceability-System-Obisidian
+Production:
+---
+# **Traceability System**
+## **🏛️ System Architecture**
 ```mermaid
 graph LR
 KanPR[Kanban Board Projects] -->  |Status visualization of MOCs| MOC[Maps of Content for the project -MOC-]
@@ -23,34 +34,28 @@ ADRs -.- |Private Links| Reference[ Reference & link to the knowledgge base]
 
 ```
 
-
-
-
+## **⚡ Vertical Slicing**
+Feature development connecting layers of the architecture to deliver one fully functional feature end-to-end.
 ``` dataview
 TABLE WITHOUT ID regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") AS "ID",  link(file.path, regexreplace(file.name, "^.*?\d+[_ \-]*", "")) AS "Vertical Slicing Documentation", Description 
-	FROM "Projects/Traceability_System_Obsidian/docs/architecture"
+	FROM "Projects/Traceability_System/docs/architecture"
 	WHERE contains(file.name, "VS") AND status != "5-Deprecated"
 	SORT regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") 
 
 ```
 
-``` dataview
+## 📓 **Requirements (REQs)**
+```dataview
 TABLE WITHOUT ID regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") AS "ID", link(file.path, regexreplace(file.name, "^.*?\d+[_ \-]*", "")) AS "Requisite", Description
-FROM "Projects/Traceability_System_Obsidian/docs/requirements"
+FROM "Projects/Traceability_System/docs/requirements"
 WHERE contains(file.name, "TSO-REQ") AND !endswith(file.name, "Analytical_Breakdown" ) AND status != "5-Deprecated"
-SORT regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1")  
+SORT regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") 
 ```
-
+## **📕Architectural Decision Record (ADRs)**
 ```dataview
-TABLE WITHOUT ID regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") AS "ID Number", link(file.path, regexreplace(file.name, "^.*?\d+[_ \-]*", "")) AS "Architectural Decision", Description
-FROM "Projects/Traceability_System_Obsidian/docs/architecture"
+TABLE WITHOUT ID regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") AS "ID", link(file.path, regexreplace(file.name, "^.*?\d+[_ \-]*", "")) AS "Architectural Decision", Description
+FROM "Projects/<CompleteThePath>/docs/architecture"
 WHERE contains(file.name, "TSO-ADR") AND !endswith(file.name, "Analytical_Breakdown" )
+SORT regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") 
 ```
 
-
-```dataview
-TABLE WITHOUT ID regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") AS "ID Number", link(file.path, regexreplace(file.name, "^.*?\d+[_ \-]*", "")) AS "Architectural Decision", Description
-FROM "Projects/Traceability_System_Obsidian/docs/architecture"
-WHERE contains(file.name, "TSO-ADR") AND !endswith(file.name, "Analytical_Breakdown" )
-SORT regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") DESC LIMIT 1
-```

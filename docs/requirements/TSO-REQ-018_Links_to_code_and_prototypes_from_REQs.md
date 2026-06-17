@@ -1,6 +1,6 @@
 ---
-status:
-priority:
+Status: 4-Done
+Priority:
 Project: TraceabilitySystem
 Description: Connects REQ's to code and prototypes
 ---

@@ -1,6 +1,6 @@
 ---
-status: 1-Backlog
-priority: P1-High
+Status: 3-Next
+Priority: P1-High
 Project: TraceabilitySystem
 Description:
 ---

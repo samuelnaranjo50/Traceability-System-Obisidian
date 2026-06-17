@@ -20,6 +20,7 @@ KanBA[Kanban Board ADRs]---> |For status visualization| ADRs
 
 %% ADR Artifacts
 ADRs --- relativeLink(Relative Markdown Link)
+ADRs --- traceabilityProps(Traceability Properties)
 ADRs --- ADRArtifact[ADR callout & links]
 ADRs --- |Private Links| Reference[ Reference & link to the knowledgge base]
 
