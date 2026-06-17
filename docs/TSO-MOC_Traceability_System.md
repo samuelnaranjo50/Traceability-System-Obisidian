@@ -5,6 +5,7 @@ Status: 2-Active
 Priority: P0-Critical
 Objective: A deterministic, local-first traceability engine that unifies Docs-as-Code infrastructure, business validation, and technical execution into an automated Single Source of Truth. It eliminates cognitive decay and administrative friction by strictly coupling market-proof metrics to immutable code artifacts via zero-maintenance Dataview radars.
 Repository: https://github.com/samuelnaranjo50/Traceability-System-Obisidian
+Prototypes:
 Production:
 ---
 # **Traceability System**
@@ -30,14 +31,14 @@ REQs[REQs] -.- |Private Links| Links[Private links & reference to the Knowledge 
 
 %% ADR Artifacts
 ADRs -.- ADRArtifact[ADR callout & links]
-ADRs -.- |Private Links| Reference[ Reference & link to the knowledgge base]
+ADRs -.- |Private Links| Reference[Reference & link to the knowledgge base]
 
 ```
 
 ## **⚡ Vertical Slicing**
 Feature development connecting layers of the architecture to deliver one fully functional feature end-to-end.
 ``` dataview
-TABLE WITHOUT ID regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") AS "ID",  link(file.path, regexreplace(file.name, "^.*?\d+[_ \-]*", "")) AS "Vertical Slicing Documentation", Description 
+TABLE WITHOUT ID regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") AS "ID", State,  link(file.path, regexreplace(file.name, "^.*?\d+[_ \-]*", "")) AS "Vertical Slicing Documentation", Description 
 	FROM "Projects/Traceability_System/docs/architecture"
 	WHERE contains(file.name, "VS") AND status != "5-Deprecated"
 	SORT regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") 
@@ -54,7 +55,7 @@ SORT regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1")
 ## **📕Architectural Decision Record (ADRs)**
 ```dataview
 TABLE WITHOUT ID regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") AS "ID", link(file.path, regexreplace(file.name, "^.*?\d+[_ \-]*", "")) AS "Architectural Decision", Description
-FROM "Projects/<CompleteThePath>/docs/architecture"
+FROM "Projects/Traceability_System/docs/architecture"
 WHERE contains(file.name, "TSO-ADR") AND !endswith(file.name, "Analytical_Breakdown" )
 SORT regexreplace(file.name, "^.*?-(\\d+)_.*$", "$1") 
 ```

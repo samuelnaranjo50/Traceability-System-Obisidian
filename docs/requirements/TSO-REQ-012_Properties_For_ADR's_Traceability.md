@@ -21,15 +21,10 @@ Description:
 
 ## Acceptance Criteria
 
-> [!todo] **Scenario A:** General ADR view
+> [!success] **Scenario A:** General ADR view
 > `Precondition - Action - Outcome`
 > 
 > **Given** that the Builder as created an ADR with proper naming and project linkage properties with the correct name , **When** the user goes to the central dashboard(MOC) of the project , **Then** within the section corresponding to the ADR's the ADR should appear and be accessible through the list appearing
-
-> [!todo] **Scenario B:** Last ADR view
-> `Precondition - Action - Outcome`
-> 
-> **Given** that the Builder as created an ADR with proper naming, project linkage properties with the correct name and is the last ADR, **When** the user goes to the central dashboard(MOC) of the project  , **Then** the last ADR of the project should be listed within its specific section
 
 ## Analytical Breakdown
 

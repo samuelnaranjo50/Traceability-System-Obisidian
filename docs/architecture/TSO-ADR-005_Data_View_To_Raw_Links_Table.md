@@ -1,6 +1,6 @@
 ---
 Project: TraceabilitySystem
-State:
+State: Pending
 Description:
 ---
 > [!info] 🏛️ TSO-ADR-005_Data_View_To_Raw_Links_Table

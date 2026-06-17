@@ -1,0 +1,55 @@
+views:
+  - type: kanban-view
+    name: Table
+    filters:
+      and:
+        - file.name.startsWith("TSO-REQ")
+        - '!file.name.endsWith("Analytical_Breakdown")'
+    sort:
+      - property: file.name
+        direction: ASC
+      - property: Priority
+        direction: ASC
+    columnOrders:
+      file.file:
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-001_Maps_of_content_(MOCs)_&_Template.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-002_Dictionary.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-003_Requirements_Structure.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-004_Kanban_Board_REQs.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-005_Template_For_MOC(Built in first REQ).md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-006_Template_User_Stories.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-007_Template_Acceptance_Criteria.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-008_Template_Structure_ADR's.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-009_Automatic_Artifact_Mapping_Within_MOC(functionality built in first REQ).md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-010_Properties_For_MOC_Traceability.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-011_Properties_For_Requisite_Traceability.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-012_Properties_For_ADR's_Traceability.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-013_Analytical_Breakdown_Artifact.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-014_Figma_Protype_Links(Not neccesary specific ggeneral approach is Built in 018).md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-015_Code_Link.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-016_Kanban_Projects.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-017_Vertical_Slicing_Note_Structure_Template.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-018_Links_to_code_and_prototypes_from_REQs.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-019_Kanban_board_For_ADRs.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-020_Automatic_Link_Refactor_Script.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-021_Vertical_Slicing_MOC_Template_&_Properties.md
+        - Projects/Traceability_System/docs/requirements/TSO-REQ-022_From_DataView_To_Raw_Table.md
+      note.Status:
+        - 1-Backlog
+        - 2-Active
+        - 3-Next
+        - 4-Done
+        - 5-Deprecated
+    cardOrders:
+      file.file: {}
+      note.Status: {}
+    columnColors:
+      file.file: {}
+      note.Status:
+        1-Backlog: pink
+        2-Active: green
+        3-Next: orange
+        4-Done: cyan
+        5-Deprecated: red
+    groupByProperty: note.Status
+    quickAddFolder: Projects/Traceability_System/docs/requirements

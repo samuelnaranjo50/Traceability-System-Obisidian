@@ -1,6 +1,6 @@
 ---
 Project: TraceabilitySystem
-State: Pending
+State: Approved
 Description:
 ---
 > [!info] 🏛️ TSO-ADR-002 : Symlinks

@@ -1,6 +1,6 @@
 ---
 Project: TraceabilitySystem
-State: Pending
+State: Complete
 Description: What should the central dashboard contain to visualize all the artifacts and main architecture diagrams of the project
 ---
 ## Diagram
@@ -24,7 +24,7 @@ MOC --> diagramCondition{Is complex API or State?}
  diagramCondition --- |False| flowDiagram[Flow diagram]
 
 %% Main Automatic Mapping
-MOC -->|Only when used| VS(VS DataView)
+MOC ---|Optional Use| VS(VS DataView)
 MOC --- ADRs(ADRs DataView)
 MOC --- REQs(REQs DataView)
 

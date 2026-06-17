@@ -3,14 +3,15 @@ Project: TraceabilitySystem
 Status: 4-Done
 Priority:
 Description: Store and visualize Vertical Slicing diagrams
+status: 4-Done
 ---
 ## Connections
 
-| Type                | Route                                                                                                                                                                 |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **📕Architecture**  |                                                                                                                                                                       |
-| 📓 **Requirements** |                                                                                                                                                                       |
-| **Others**          | [VS (TSO Template)](../assets/templates/VS%20(TSO%20Template).md) <br>[VS MOC dataview (TSO template)](../assets/templates/VS%20MOC%20dataview%20(TSO%20template).md) |
+| Type                | Route                                                                                           |
+| ------------------- | ----------------------------------------------------------------------------------------------- |
+| **📕Architecture**  |                                                                                                 |
+| 📓 **Requirements** |                                                                                                 |
+| **Others**          | [VS MOC dataview (TSO template)](../assets/templates/VS%20MOC%20dataview%20(TSO%20template).md) |
 
 
 ## Story
@@ -18,21 +19,17 @@ Description: Store and visualize Vertical Slicing diagrams
 > `User type - Action - Output`
 > 
 **As a** Builder,
-**I want to** visualize the grouping of my vertical slicing in a `VS` note and quickly insert the structure,
-**So that** I can understand the architecture and relationship of the features (REQs) to develop and quickly set the note up.
+**I want to** visualize the grouping of my vertical slicing `VS` notes and quickly insert the structure,
+**So that** I can understand the architecture and relationship of the features (REQs) to develop, understand the current state of the feature and quickly.
 
 ## Acceptance Criteria
 
-> [!success] **Scenario A:** MOC template
-> `Precondition - Action - Outcome`
-> 
-> **Given** I have created a MOC , **When** I click `cmd/ctrl + m` & select `VS (TSO template`  , **Then** the properties of vertical slicing project, state & description are shown
 
-> [!success] **Scenario B:** MOC Automatic Data View Behavior
+> [!success] **Scenario:** MOC Automatic Data View Behavior
 > `Precondition - Action - Outcome`
 > 
 > **Given** I have inserted the MOC template , **When** I `cmd/ctrl + m`, select **`VS MOC dataview(TSO template)`** & set the path of the project architecture relative to the vault folder in the **`FROM`** keyword, **Then** i see the automatically build table containing:
-> - displays 3 rows: ID, Vertical slicing documentation & description
+> - displays 4 rows: ID, State, Vertical slicing documentation & description
 > - No deprecated VS are shown
 > - Is ordered low to highest (ASCD)
 > - Only VS notes are shown

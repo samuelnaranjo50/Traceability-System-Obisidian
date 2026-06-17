@@ -3,13 +3,14 @@ Status: 2-Active
 Priority: P0-Critical
 Project: TraceabilitySystem
 Description: The portal that connects the whole project documentation, provides automatic mapping to the content without manual intervention
+status: 4-Done
 ---
 ## Connections
 
 | Type                | Route                                                                                                                                                                                          |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **📕Architecture**  |                                                                                                                                                                                                |
-| 📓 **Requirements** | `md` [TSO-REQ-017_Vertical_Slicing_Structure](TSO-REQ-017_Vertical_Slicing_Structure.md)<br>`md` [TSO-REQ-010_Properties_For_MOC_Traceability](TSO-REQ-010_Properties_For_MOC_Traceability.md) |
+| 📓 **Requirements** | `md` [TSO-REQ-017_Vertical_Slicing_Note_Structure_Template](TSO-REQ-017_Vertical_Slicing_Note_Structure_Template.md)<br>`md` [TSO-REQ-010_Properties_For_MOC_Traceability](TSO-REQ-010_Properties_For_MOC_Traceability.md) |
 
 
 ## Story
@@ -23,7 +24,7 @@ Description: The portal that connects the whole project documentation, provides 
 
 ## Acceptance Criteria
 
-> [!todo] **Scenario A:** Template insertion 
+> [!success] **Scenario A:** Template insertion 
 > `Precondition - Action - Outcome`
 > 
 > **Given** I have created a MOC note `PROJECTID-MOC_Naming_`  , **When** I click `cmd/ctrl + m` and select **`MOC note (TSO template)`** , **Then** the note should adopt the following structure:
@@ -33,7 +34,7 @@ Description: The portal that connects the whole project documentation, provides 
 > - Requirements: Contains the DataView code block with the selection syntax written to select *requirements* (missing project path)
 > - Architectural Decision Record:  Contains the DataView code block with the selection syntax written to select *decision records* (missing project path)
 
-> [!todo] **Scenario B:** Requirements DataView automatic artifact mapping
+> [!success] **Scenario B:** Requirements DataView automatic artifact mapping
 > `Precondition - Action - Outcome`
 > 
 > **Given** I have inserted the MOC template , **When** I match the project path in the **`FROM`** keyword in the REQs block, **Then** the table maps all the *requirements* that are not deprecated and matches the next structure: 
@@ -41,7 +42,7 @@ Description: The portal that connects the whole project documentation, provides 
 > - Requisite: Name context and file linkage
 > - Description
 
-> [!todo] **Scenario C:** Architectural Decision Record DataView automatic artifact mapping
+> [!success] **Scenario C:** Architectural Decision Record DataView automatic artifact mapping
 > `Precondition - Action - Outcome`
 > 
 >  **Given** I have inserted the MOC template , **When** I match the project path in the **`FROM`** keyword in the ADRs block, **Then** the table maps all theArchitectural Decision Records that are not deprecated and matches the next structure: 
@@ -49,11 +50,12 @@ Description: The portal that connects the whole project documentation, provides 
 > - Architectural Decision: Name context and file linkage
 > - Description
 
-> [!todo] **Scenario D:** Optional Vertical Slicing automatic artifact mapping
+> [!success] **Scenario D:** Optional Vertical Slicing automatic artifact mapping
 > `Precondition - Action - Outcome`
 > 
 > **Given** I have inserted the MOC template , **When** I click `cmd/ctrl + m`, select **`VS MOC dataview (TSO template)`**  and match the project path in the **`FROM`** keyword in the *vertical slicing* block, **Then** the table maps all the *requirements* that are not deprecated and matches the next structure: 
 > - ID
+> - State
 > - Vertical Slicing Documentation: Name context and file linkage
 > - Description
 

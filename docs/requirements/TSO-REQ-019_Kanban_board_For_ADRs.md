@@ -3,6 +3,7 @@ Status: 3-Next
 Priority: P1-High
 Project: TraceabilitySystem
 Description:
+status: 3-Next
 ---
 * **[💻 Local Mac Cockpit](vscode://file/Users/s_n_gr/traceability_system/src/CodeFile.java)**
 * **[🌐 GitHub / Tablet Ledger](../src/CodeFile.java)**
