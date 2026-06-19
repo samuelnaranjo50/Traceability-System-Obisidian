@@ -1,6 +1,7 @@
 ---
 Project: TraceabilitySystem
 State: Approved
+Priority: P0-Critical
 Description:
 ---
 > [!info] 🏛️ TSO-ADR-002 : Symlinks

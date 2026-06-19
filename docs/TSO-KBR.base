@@ -5,10 +5,15 @@ views:
       and:
         - file.name.startsWith("TSO-REQ")
         - '!file.name.endsWith("Analytical_Breakdown")'
+    groupBy:
+      property: Status
+      direction: ASC
+    order:
+      - Priority
     sort:
-      - property: file.name
-        direction: ASC
       - property: Priority
+        direction: ASC
+      - property: file.name
         direction: ASC
     columnOrders:
       file.file:
@@ -48,7 +53,7 @@ views:
       note.Status:
         1-Backlog: pink
         2-Active: green
-        3-Next: orange
+        3-Next: yellow
         4-Done: cyan
         5-Deprecated: red
     groupByProperty: note.Status

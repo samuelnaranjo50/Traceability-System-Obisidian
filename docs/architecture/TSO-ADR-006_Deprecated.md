@@ -1,11 +1,11 @@
 ---
-Project: TraceabilitySystem
-State: Pending
-Priority: P0-Critical
+Priority:
+State: Deprecated
+Project:
 Description:
 ---
-> [!info] 🏛️ TSO-ADR-001_Project_Folder_structure
-> **Date of Decision:**  2026-06-04 
+> [!info] 🏛️ [PREFIJO]-ADR-[ID]: [Human_Readable_Title_In_Snake_Case]
+> **Date of Decision:** YYYY-MM-DD
 > 
 > ---
 > *Connections*

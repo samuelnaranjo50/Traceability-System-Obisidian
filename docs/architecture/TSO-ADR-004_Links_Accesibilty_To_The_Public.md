@@ -1,6 +1,7 @@
 ---
 Project: TraceabilitySystem
-State: Pending
+State: Approved
+Priority: P2-Normal
 Description: " Link accessibility nuances"
 ---
 > [!info] 🏛️ TSO-ADR-004_Links_Accesibilty_To_The_Public

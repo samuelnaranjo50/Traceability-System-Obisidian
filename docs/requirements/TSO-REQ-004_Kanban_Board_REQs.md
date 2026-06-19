@@ -1,9 +1,9 @@
 ---
-Status: 3-Next
+Status: 4-Done
 Priority: P0-Critical
 Project: TraceabilitySystem
 Description: How do I need to set up the kanban board in order for it to handle the REQs properly, which features of the board I need to leverage
-status: 2-Active
+status: 4-Done
 ---
 ## Story
 
@@ -19,6 +19,8 @@ status: 2-Active
 >[!info] This will set the board to be group by the status
 ![](../assets/images/Screen%20Shot%202026-06-17%20at%201.12.33%20PM.png)
 ![](../assets/images/Screen%20Shot%202026-06-17%20at%201.13.00%20PM.png)
+>Next should be *yellow*
+
 
 > [!success] **Scenario:** Kanban Queque Configuration
 > `Precondition - Action - Outcome`

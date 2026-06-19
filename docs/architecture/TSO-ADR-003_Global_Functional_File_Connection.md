@@ -1,6 +1,7 @@
 ---
 Project: TraceabilitySystem
 State: Pending
+Priority:
 Description:
 ---
 > [!info] 🏛️ TSO-ADR-003_Global_Functional_File_Connection
