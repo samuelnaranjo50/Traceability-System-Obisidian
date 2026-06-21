@@ -1,3 +1,5 @@
+// @trace  REQ-020 @
+
 import { SearchAndDivide } from './FileSelectionHelper.js';
 import ExtractDataAndMatch from './PathExtractionHelper.js';
 import path from 'node:path';
@@ -18,8 +20,17 @@ console.log('Logging:', rootFolderPath, appRoot);
 const excludeList = ['.gitignore', '.git', '.DS_Store', 'node_modules', 'README.md', 'package-lock.json', 'package.json', '.wakatime-project'];
 
 // Finding Files & directories & filtering function
+// Data structure
+let arrObjItems = {
+            files: [],
+            dirs: []
+        }
+
 // Note: Make this helper recursively call itself to extract all data
-const folderItems = SearchAndDivide(appRoot.path, excludeList);
+SearchAndDivide(appRoot.path, excludeList, arrObjItems);
+
+//temporary log
+arrObjItems.files.forEach(file => console.log(file.name))
 
 // Data structure for files connected to related artifacts
 let filesPathAndIdentifierConnected = {}
@@ -28,11 +39,24 @@ let filesPathAndIdentifierConnected = {}
 const wordA = '@trace';
 const wordB = '@end';
 
-//put this in a helper ->>
+// Accepted identifiers (Artifacts ID of the traceability system)
+const systemArtifacts = ['REQ', 'ADR', 'VS'];
 
-ExtractDataAndMatch(folderItems, filesPathAndIdentifierConnected, wordA, wordB );
+ExtractDataAndMatch(arrObjItems, filesPathAndIdentifierConnected, wordA, wordB, systemArtifacts );
 
+console.log('DEBUG: What is the object?', filesPathAndIdentifierConnected);
+console.log('DEBUG: What are the entries?', Object.entries(filesPathAndIdentifierConnected));
 
+for( const[key, filesArray] of Object.entries(filesPathAndIdentifierConnected)){
+    //console.log('DEBUG: This is the key being extracted:', key);
+    //console.log('DEBUG: This is the value being extracted:', filesArray);
+    
+    filesArray.forEach(file => {
+        console.log(`${key} connected to -> ${file.name} and ${file.path
+        }`);
+    })
+    }
+//Temporary log to check files that link to a artifact are actually mapped properly
 
 //Creating & writing a file
 //  Including a path
