@@ -34,6 +34,14 @@ Description: A script that updates the links of code files trigger by a commit
 > - [ ] regex that extracts from data between the keyword  **possible candidates** for an artifact identifier. It should store identifiers that match the next pattern:  `uppercase letters` followed by a  hyphen `-` followed by numbers from 0-9
 > - [ ] regex that filters from the already selected candidates to the actual valid **artifacts identifiers** from a specified **list**. The algorithm should extract using regex the following data: **uppercase letters** without selecting the hyphen `-`
 > 
+
+ >[!todo] **Scenario:** Multiple keyword mentions within a  File complex data extraction
+> `Precondition - Action - Outcome`
+> 
+> **Given** the file data has been stored and the algorithm has extracted the data of the file **When** the regex match is perform , **Then** the regex should handle both files with on keyword mention and files with multiple keyword mentions
+> - [x] uses a method that extracts 1 or more matches!
+> 
+
 ## Analytical Breakdown
 
 | **Problem Solving documentation** | **File**                                                                |
@@ -48,4 +56,5 @@ Description: A script that updates the links of code files trigger by a commit
 
 - [[(Literature) Regex expression in Java Script]]
 - [[File handling in Java (visual)]]
-- 
+- [[(Literature) JavaScript cool loops and methods for selection and data modification]]
+

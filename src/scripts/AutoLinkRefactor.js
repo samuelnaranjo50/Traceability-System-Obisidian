@@ -1,4 +1,4 @@
-// @trace  REQ-020 @
+// @trace  REQ-020 ADR-003 @
 
 import { SearchAndDivide } from './FileSelectionHelper.js';
 import ExtractDataAndMatch from './PathExtractionHelper.js';
@@ -37,7 +37,7 @@ let filesPathAndIdentifierConnected = {}
 
 // Regex Logic
 const wordA = '@trace';
-const wordB = '@end';
+const wordB = '@';
 
 // Accepted identifiers (Artifacts ID of the traceability system)
 const systemArtifacts = ['REQ', 'ADR', 'VS'];

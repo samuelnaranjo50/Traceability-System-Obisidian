@@ -120,3 +120,5 @@ Description:
 ###### Reference :
 
 - [[Enabling the Auto-Refactor engine in VS Code and Obsidian]]
+
+@trace REQ-020 @
