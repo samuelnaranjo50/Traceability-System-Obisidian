@@ -107,7 +107,7 @@ for (const [key, value] of Object.entries(filesPathAndIdentifierConnected)) {
 
     /*
     // Loop in context:
-    // The loop takes the key of the REQ identifier that has connection mentions.
+    // The loop takes the key of the Artifact identifier that has connection mentions.
     // Then it compares it with the whole file list
     // If it finds a match and its not a Analytical breakdown artifact, 
     // then the path of the artifact can be extracted to write in it the **connections**
@@ -162,6 +162,14 @@ for (const [key, value] of Object.entries(filesPathAndIdentifierConnected)) {
 
 
         filesPathAndIdentifierConnected[key].forEach(file => {
+
+          /*
+          // Loop in context:
+          // - Now that the path of the artifact is selected you can write to it
+          // - Loop over the connections and calssify them properly
+          // - Every time you classify them add it to the temporary storage structure outside of the loop
+          // - This stored and classified connections will be used to write the connections section in the outer loop since this is the loop that has the artifact selected
+          */
             const artifactIdentfier = file.name.match(fileIdentifierNoNumFilteringRegex)?.[0];
             const extension = file.name.match(fileExtensionExtractionRegex)?.[0]; // ?: checks if the value exist else return undefined .[0] extracts the value
 
@@ -176,8 +184,7 @@ for (const [key, value] of Object.entries(filesPathAndIdentifierConnected)) {
                 isOther: false
             }*/
 
-            const classification = new Set(); // Use set to prevent duplicates
-
+            const classification = new Set(); //Store the current classificationadd
             // Defining logic base on Artifact in name
             if(artifactIdentfier && systemArtifacts.includes(artifactIdentfier)){
                 if(extensionClassification.Architecture.includes(artifactIdentfier)) classification.add("Architecture");
@@ -196,11 +203,30 @@ for (const [key, value] of Object.entries(filesPathAndIdentifierConnected)) {
                 classification.add("Other");
             }
 
-            //      console.log(`DEBUG: Checking if clasification works \n - file: ${file.name} \n classification: ${[...classification].join(', ')}`);
+            console.log(`DEBUG: Checking if clasification works \n - file: ${file.name} \n classification: ${[...classification]}`);
             
-            // Pass the found element as storage value the an object of arrays
+
+            // Store the classify file to the proper property
+            try{
+
+              if(classification.size > 1){
+                throw new MultiClassification(`The algoritm logic is selecting more than one category for the related file: ${file.name}`)
+              }
+              
+              const singleCategory = [...classification][0];
+              currentClasification[singleCategory].push(file);
+            }
+            catch(err){
+              console.log(err);
+
+            }
+            //currentClasification.
         })
 
+        //checking if files store properly in its assigned category
+        //console.log(`DEBUG DATA STRUCTURE: Object of connections inner look ${JSON.stringify(currentClasification)}`);
+
+        // !Write the connections in Artifact file
 
 
       }
