@@ -1,9 +1,10 @@
-// @trace  REQ-020 ADR-003 @
+// @trace  REQ-020 ADR-003 VS-006 @
 
 import { SearchAndDivide } from "./FileSelectionHelper.js";
 import ExtractDataAndMatch from "./PathExtractionHelper.js";
 import path from "node:path";
-import fs, { readFileSync } from "node:fs";
+import fs, { readdirSync, readFileSync } from "node:fs";
+import matter from "gray-matter";
 
 // Project Root path
 import appRoot from "app-root-path";
@@ -129,20 +130,25 @@ for (const [key, value] of Object.entries(filesPathAndIdentifierConnected)) {
         // - Classifies the connections store in the object related to this !{key}, hint: use control structure
         // - procceds to write the formated classification in a table within the path of the identifier file
         */
+
+        //Valid accepted Artifact data
+        const validArtifactPath = path.join(file.path, file.name);
+        console.log(`DEBUG CURRENT ARTIFACT: Object of artifact ${file.name} inner look ${JSON.stringify(validArtifactPath)}`);
+
         console.log(
           `DEBUG IMPORTANT- key is-> ${key} and is related with this file -> ${path.join(file.path, file.name)}`,
         );
 
         // Temporary Storage for clasification
           const currentClasification = {
-              Architecture: [], 
-              Requirements: [], 
-              Prototypes: [],
-              Core: [],
-              Client: [],
-              Verification: [],
-              Other: [],
-          }
+            "📕 Architecture": [],
+            "📓 Requirements": [],
+            "🧪 Prototypes": [],
+            "⚙️ Core Logic (Backend/Systems)": [],
+            "🎨 Client Layer (Frontend/UI)": [],
+            "🛡️ Verification (Tests & Config)": [],
+            "📂 Other": [],
+          };
 
         /*
         // Logic for Artifact clasification:
@@ -170,7 +176,7 @@ for (const [key, value] of Object.entries(filesPathAndIdentifierConnected)) {
           // - Every time you classify them add it to the temporary storage structure outside of the loop
           // - This stored and classified connections will be used to write the connections section in the outer loop since this is the loop that has the artifact selected
           */
-            const artifactIdentfier = file.name.match(fileIdentifierNoNumFilteringRegex)?.[0];
+            const artifactIdentfier = file.name.match(fileIdentifierNoNumFilteringRegex)?.[0]; 
             const extension = file.name.match(fileExtensionExtractionRegex)?.[0]; // ?: checks if the value exist else return undefined .[0] extracts the value
 
             // Which logic to activate
@@ -187,20 +193,21 @@ for (const [key, value] of Object.entries(filesPathAndIdentifierConnected)) {
             const classification = new Set(); //Store the current classificationadd
             // Defining logic base on Artifact in name
             if(artifactIdentfier && systemArtifacts.includes(artifactIdentfier)){
-                if(extensionClassification.Architecture.includes(artifactIdentfier)) classification.add("Architecture");
-                if(extensionClassification.Requirements.includes(artifactIdentfier)) classification.add("Requirements");
+                if(extensionClassification.Architecture.includes(artifactIdentfier)) classification.add('📕 Architecture');
+                if(extensionClassification.Requirements.includes(artifactIdentfier)) classification.add('📓 Requirements');
+                if(extensionClassification.Prototypes.includes(artifactIdentfier/*Should be changed to custom regex for proto*/ ))classification.add("🧪 Prototypes");
             }
              
             // Defining logic base on extension
             if(extension){
-                if(extensionClassification.Core.includes(extension)) classification.add("Core") ;
-                if(extensionClassification.Client.includes(extension)) classification.add("Client");
-                if(extensionClassification.Verification.includes(extension)) classification.add("Verification");
+                if(extensionClassification.Core.includes(extension)) classification.add('⚙️ Core Logic (Backend/Systems)') ;
+                if(extensionClassification.Client.includes(extension)) classification.add('🎨 Client Layer (Frontend/UI)');
+                if(extensionClassification.Verification.includes(extension)) classification.add('🛡️ Verification (Tests & Config)');
             }
 
-            // Defining if should be clasifying as other
+            // Defining if should be clasifying as other  
             if(classification.size === 0){
-                classification.add("Other");
+                classification.add("📂 Other");
             }
 
             console.log(`DEBUG: Checking if clasification works \n - file: ${file.name} \n classification: ${[...classification]}`);
@@ -224,14 +231,57 @@ for (const [key, value] of Object.entries(filesPathAndIdentifierConnected)) {
         })
 
         //checking if files store properly in its assigned category
-        //console.log(`DEBUG DATA STRUCTURE: Object of connections inner look ${JSON.stringify(currentClasification)}`);
+        console.log(`DEBUG DATA STRUCTURE: Object of connections inner look ${JSON.stringify(currentClasification)}`);
 
         // !Write the connections in Artifact file
+        
+        // Should place path -> validArtifactPath but i will hardcode it to ensure no data is lost
+        const artifactData = fs.readFileSync('/Users/s_n_gr/Documents/My-Engineering-projects/traceability_system/docs/requirements/TSO-REQ-023_trying_connections.md', 'utf8'); // Extract artifact data to defnie where to plug
+        const parsedData = matter(artifactData);
+        //console.log(`CHECK PARS ARTIFACT DATA: GRAY-MATTER Yaml separation object inner look ${JSON.stringify(parsedData)}`);
 
+        //Data is divide now you need to append to it some links
+        /*
+        // TEST: 
+        // - Define the header
+        // - Build a table dynamically based on the key and the values of the currentClasification object
+        // - Avoid adding table row of empty type categories
+        // - Select the file name without extension make it be the link name
+        // - Add the path as link
+        // 
+        */
+
+        // Iterate over the key and then over the array of object of classify 
+        const sectionHeader = '## Connections\n';
+        const dynamicTableHeader = '| Type | Route |\n| :---  | :--- |\n'; //How should the header look like
+
+        let dynamicTable = '';
+        dynamicTable += dynamicTableHeader;
+        
+        for(const [key, arrayOfObjects] of Object.entries(currentClasification)){
+          if (Array.isArray(arrayOfObjects) && arrayOfObjects.length === 0) continue;
+          const type = `|**${key}**|`;
+          dynamicTable += type ;
+
+          
+          arrayOfObjects.forEach(obj => {
+            
+            dynamicTable += `[${obj.name}](${obj.path}) <br>`
+          })
+
+          dynamicTable += "|\n";
+          
+        }
+        
+        
+
+         parsedData.content = sectionHeader + dynamicTable + parsedData.content ;
+         const updatedFileRaw = matter.stringify(parsedData.content, parsedData.data);
+        fs.writeFileSync('/Users/s_n_gr/Documents/My-Engineering-projects/traceability_system/docs/requirements/TSO-REQ-023_trying_connections.md',updatedFileRaw, { flag: 'r+' } );
 
       }
     }
-  });
+  })
 }
 
 /*
