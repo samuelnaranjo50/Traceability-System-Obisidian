@@ -164,7 +164,7 @@ for (const [key, value] of Object.entries(filesPathAndIdentifierConnected)) {
         console.log("DEBUG TRUE KEY:", JSON.stringify(key));
 
         // This will print the actual contents of your object instead of [object Object]
-        //console.log("DEBUG OBJECT DUMP:", JSON.stringify(filesPathAndIdentifierConnected[key], null, 2));
+        console.log("DEBUG OBJECT DUMP:", JSON.stringify(filesPathAndIdentifierConnected[key], null, 2));
 
 
         filesPathAndIdentifierConnected[key].forEach(file => {
