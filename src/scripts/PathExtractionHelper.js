@@ -42,7 +42,7 @@ export default function ExtractDataAndMatch(itemsObj, storageStructure, regexSta
 
     // Regex logic for: Expression extraction & data filtering
     const regex = new RegExp(`${regexStart}([\\s\\S]*?)${regexEnd}`, 'g'); //Start to End data selection using *keywords*
-    const identifierRegexFormat = /(?:^|\s)[A-Z]+-\d+/g; //Possible candidates that match artifact identifier structure
+    const identifierRegexFormat = /(?<=^|\s)[A-Z]+-\d+/g; //Possible candidates that match artifact identifier structure
     const artifactIdentifierRegex = /\b[A-Z]+/g; // Extracts only the *artifact identifier*, later is compare to the valid artifact in the system
 
 
@@ -52,11 +52,11 @@ export default function ExtractDataAndMatch(itemsObj, storageStructure, regexSta
     const matchKeywordSectionArr = [...data.matchAll(regex)]; // An array that uses the matchAll method that extract data between keywords and even handles multiple calls
     //console.log('DEBUG CURRENT: Extracted data between keywords 1 ->', matchKeywordSectionArr);
     if (!(matchKeywordSectionArr == null)) {
+
       /*
       // Extracting data between the start and end of the connection keywords @trace @ -> idicates end
-      // 
-      // 
       */
+
       let extractedDataBetweenKeys = '';
       matchKeywordSectionArr.forEach(match => {
         console.log('DEBUG CURRENT: what is the current match ->', match[0]);
@@ -89,6 +89,8 @@ export default function ExtractDataAndMatch(itemsObj, storageStructure, regexSta
 
 
         })
+
+        
 
 
         // Storing the connection, only using valid identifiers
