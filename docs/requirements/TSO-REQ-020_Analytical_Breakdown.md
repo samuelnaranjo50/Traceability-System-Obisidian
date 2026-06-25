@@ -79,6 +79,8 @@ popItem --- dirsArr
 # Mermaid OOP approach
 - Realize that i have one loop that always run comparing the data and extracts its path, i can replace this with a method that run a loop taking an Artifact and its number and returning its path
 
+- Extract the key and loop over them refering to the object of artifact and connections and within it then you can loop 
+
 # Excalidraw Data
 
 ## Text Elements

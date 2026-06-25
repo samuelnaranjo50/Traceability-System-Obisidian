@@ -42,6 +42,11 @@ Description: A script that updates the links of code files trigger by a commit
 > - [x] uses a method that extracts 1 or more matches!
 > 
 
+> [!todo] **Scenario:** Finding the artifact where a list of connections should be added
+> `Precondition - Action - Outcome`
+> 
+> **Given** the script has collected the `ArtifactRelatedFileConnection` & `DirectoryAndFileMap`  , **When** a artifact identifier e.g (REQ, ADR) is selected to find its path  , **Then** the algorithm should find the valid path of that artifact, making sure there are not duplicate artifacts with the same identifier and avoiding the helper artifact **"Analytical_Breakdown"** since it will contain the artifact identifier causing further trouble
+
 > [!todo] **Scenario:** Writing the connections to the file
 > `Precondition - Action - Outcome`
 > 
