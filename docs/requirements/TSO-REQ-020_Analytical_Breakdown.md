@@ -76,6 +76,8 @@ isFoundCurrentDirPath --> |True| popItem
 popItem --- dirsArr
 ```
 
+# Mermaid OOP approach
+- Realize that i have one loop that always run comparing the data and extracts its path, i can replace this with a method that run a loop taking an Artifact and its number and returning its path
 
 # Excalidraw Data
 
