@@ -8,7 +8,7 @@ Description:
 > **Date of Decision:**  2026-06-04 
 > 
 > ---
-> *Connections*
+> *@Connections*
 > - **Related REQs:** |  |
 > - **Related ADRs:** |  |
 > ---

@@ -53,12 +53,12 @@ Description: A script that updates the links of code files trigger by a commit
 > **Given** Artifacts have been map to the connected files or other artifact , **When** writing to files those connections , **Then**  
 > - [ ] Add the link with correct path to the correct Artifact file in the correct section excluding `analytical breakdown artifact` by identify a artifact followed by a name of "Analytical_Breakdown"
 > - [x] Classify Related files: based on the name of the file and its extension classify the link to specific area
-> - [ ] Transform the link to be a relative link to the file
+> - [x] Transform the link to be a relative link to the file
 > - [ ] If file is a REQ or VS artifacts add the text right below the YAML within the first section
 > - [ ] if file is an ADR find the `*Connections*` text and plug. the table below it with the blockquote `>` at the beginning
 >
 > - [ ] Based on the area add a emoji with semantic meaning
-> - [ ] Add the extension of the file before the link for cool formatting
+> 
 
 > [!todo] **Scenario:** Handling hand written links that survive in the connection table like prototypes to figma or others
 > `Precondition - Action - Outcome`
@@ -82,3 +82,4 @@ Description: A script that updates the links of code files trigger by a commit
 - [[(Literature) JavaScript cool loops and methods for selection and data modification]]
 - [[(Literature)  Library for easy data extraction from markdown files]]
 - [[(Literature) File handling features of node JS]] 
+-  [[(Literature) jest support ES modules]]
