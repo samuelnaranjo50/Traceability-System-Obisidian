@@ -8,9 +8,11 @@ Description:
 > **Date of Decision:**  2026-06-04 
 > 
 > ---
-> *@Connections*
-> - **Related REQs:** |  |
-> - **Related ADRs:** |  |
+> *Connections*
+> ``
+> 
+> ``
+> 
 > ---
 >  ## **1. The Context (Systemic Problem)**
 >  ***Issue***

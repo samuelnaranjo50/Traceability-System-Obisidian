@@ -1,18 +1,16 @@
 ---
-Priority:
-State: Deprecated
+State: In Process
 Project:
+Priority:
 Description:
 ---
-
-
 > [!info] 🏛️ [PREFIJO]-ADR-[ID]: [Human_Readable_Title_In_Snake_Case]
 > **Date of Decision:** YYYY-MM-DD
 > 
 > ---
 > *Connections*
-> - **Related REQs:** |  | 
-> - **Related ADRs:** |  |
+> <span hidden data-connections-begin></span>
+> <span hidden data-connections-end></span>
 > ---
 >  ## **1. The Context (Systemic Problem)**
 >  ***Issue***

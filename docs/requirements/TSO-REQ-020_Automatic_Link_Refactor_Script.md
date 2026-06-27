@@ -19,12 +19,12 @@ Description: A script that updates the links of code files trigger by a commit
 > `Precondition - Action - Outcome`
 > 
 > **Given** the commit as been trigger , **When** the script begins , **Then** 
-> - [x] Find the root directory of the project path
-> - [x] Files and directories data including its name and path are store separated
-> - [x] Files of non interest store such as: `[.dsstore, react packages, .gitignore`, store  in an array are exclude from memory save by the helper function.
-> - [x] Data from files is read and specific keyword **@trace** follow by artifact identifiers `REQ` `VS` `ADR` are scan till the keyword **@end**, making sure is a valid identifier from the list of identifiers and that it contains a number ID.
-> - [x] If a match of this identifiers are found in one or more files an object for storage should contain the **identifier properties:** REQ, ADR and VS followed by an array that adds the path of the file to this section if found
-> - [x] If the folder contains more directories this process should be repeated for directories find in the root directory and directories of directories find within those **without loosing**g any data!!
+> - [ ] Find the root directory of the project path
+> - [ ] Files and directories data including its name and path are store separated
+> - [ ] Files of non interest store such as: `[.dsstore, react packages, .gitignore`, store  in an array are exclude from memory save by the helper function.
+> - [ ] Data from files is read and specific keyword **@trace** follow by artifact identifiers `REQ` `VS` `ADR` are scan till the keyword **@end**, making sure is a valid identifier from the list of identifiers and that it contains a number ID.
+> - [ ] If a match of this identifiers are found in one or more files an object for storage should contain the **identifier properties:** REQ, ADR and VS followed by an array that adds the path of the file to this section if found
+> - [ ] If the folder contains more directories this process should be repeated for directories find in the root directory and directories of directories find within those **without loosing**g any data!!
 
  >[!success] **Scenario:** Regex Expression Extraction & filtering
 > `Precondition - Action - Outcome`
@@ -51,19 +51,22 @@ Description: A script that updates the links of code files trigger by a commit
 > `Precondition - Action - Outcome`
 > 
 > **Given** Artifacts have been map to the connected files or other artifact , **When** writing to files those connections , **Then**  
-> - [ ] Add the link with correct path to the correct Artifact file in the correct section excluding `analytical breakdown artifact` by identify a artifact followed by a name of "Analytical_Breakdown"
+> - [x] Add the link with correct path to the correct Artifact file in the correct section excluding `analytical breakdown artifact` by identify a artifact followed by a name of "Analytical_Breakdown"
 > - [x] Classify Related files: based on the name of the file and its extension classify the link to specific area
 > - [x] Transform the link to be a relative link to the file
-> - [ ] If file is a REQ or VS artifacts add the text right below the YAML within the first section
-> - [ ] if file is an ADR find the `*Connections*` text and plug. the table below it with the blockquote `>` at the beginning
->
-> - [ ] Based on the area add a emoji with semantic meaning
+> - [x] If file is a REQ or VS artifacts add the text right below the YAML within the first section
+> - [x] if file is an ADR find the `*Connections*` text followed by the delimeters and plug. the table below it with the blockquote `>` at the beginning
+> - [x] Use  invisible token delimeters to identify where to plug the table span hidden is not render nor by obsidian nor by github  "`<span hidden data-connections-begin></span> ... <span hidden data-connections-end></span>`" 
+> - [x] Based on the area add a emoji with semantic meaning
 > 
 
 > [!todo] **Scenario:** Handling hand written links that survive in the connection table like prototypes to figma or others
 > `Precondition - Action - Outcome`
 > 
 > **Given** .... , **When** .... , **Then**
+> 
+
+
 
 ## Analytical Breakdown
 

@@ -114,7 +114,7 @@ export const mockTraceabilityData = {
 * @property {string} path - Complete path including the file name
 */
 
-/** @type {Record<string, TraceableFile[]>} classifiedConnections */
+/** @type {Record<string, TraceableFile[]>} classifiedConnections  - The object containing the files connected to a given Artifact*/
 
 export const classifiedConnections = {
     "📕 Architecture": [
@@ -160,3 +160,91 @@ export const classifiedConnections = {
         }
     ]
 };
+
+
+/**
+ * FILE MOCK ADR
+ * @type {string} fileADRMock - Mock file with ADR artifact structure, with empty connections
+ */
+
+export const fileADRMock = `
+---
+Project: TraceabilitySystem
+State: Approved
+Priority: P0-Critical
+Description:
+---
+> [!info] 🏛️ TSO-ADR-002 : Symlinks
+> **Date of Decision:** 2026-06-04 
+> 
+> ---
+> *Connections*
+> <span hidden data-connections-begin></span>
+> 
+> <span hidden data-connections-end></span>
+> 
+> ---
+>  ## **1. The Context (Systemic Problem)**`;
+
+
+/**
+ * FILE MOCK ADR
+ * @type {string} fileREQsOrVSMock - Mock file with REQ or VS artifact structure, with empty connections
+ */
+
+export const fileREQsOrVSMock = `---
+Project: null
+Status: null
+Priority: null
+Description: null
+---
+
+## Acceptance Criteria
+
+
+--- 
+###### Links: 
+
+###### Reference :`
+
+
+/**
+ * TABLE MOCK ADR
+ * @type {string} tableNoHeaderMock - Table data with delimiter and without
+ */
+export const tableNoHeaderMock = `
+<span hidden data-connections-begin></span>
+    
+| Type | Route |
+| :--- | :--- |
+|**📕 Architecture**|[PRO-ADR-001_Microkernel](../../architecture/PRO-ADR-001_Microkernel.md) <br>|
+|**📓 Requirements**|[PRO-REQ-101_Data_Ingestion](../../requirements/PRO-REQ-101_Data_Ingestion.md) <br>|
+|**🧪 Prototypes**|[01_proof_of_concept](../../../prototypes/01_proof_of_concept.py) <br>|
+|**⚙️ Core Logic (Backend/Systems)**|[pipeline](../../../src/core/pipeline.js) <br>|
+|**🎨 Client Layer (Frontend/UI)**|[dashboard](../../../src/ui/dashboard.jsx) <br>|
+|**🛡️ Verification (Tests & Config)**|[pipeline](../../../tests/pipeline.test.js) <br>|
+|**📂 Other**|[README](../../../README.md) <br>|
+    
+<span hidden data-connections-end></span>`
+
+
+/**
+ * TABLE MOCK ADR
+ * @type {string} tableHeaderMock - Table data with delimiter and with header
+ */
+
+export const tableHeaderMock = `## Connections
+
+<span hidden data-connections-begin></span>
+
+| Type | Route |
+| :--- | :--- |
+| **📕 Architecture** | [PRO-ADR-001_Microkernel](../../architecture/PRO-ADR-001_Microkernel.md) <br> |
+| **📓 Requirements** | [PRO-REQ-101_Data_Ingestion](../../requirements/PRO-REQ-101_Data_Ingestion.md) <br> |
+| **🧪 Prototypes** | [01_proof_of_concept](../../../prototypes/01_proof_of_concept.py) <br> |
+| **⚙️ Core Logic (Backend/Systems)** | [pipeline](../../../src/core/pipeline.js) <br> |
+| **🎨 Client Layer (Frontend/UI)** | [dashboard](../../../src/ui/dashboard.jsx) <br> |
+| **🛡️ Verification (Tests & Config)** | [pipeline](../../../tests/pipeline.test.js) <br> |
+| **📂 Other** | [README](../../../README.md) <br> |
+
+<span hidden data-connections-end></span>`;

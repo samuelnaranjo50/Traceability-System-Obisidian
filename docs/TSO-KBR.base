@@ -45,6 +45,7 @@ views:
         - 3-Next
         - 4-Done
         - 5-Deprecated
+        - Uncategorized
     cardOrders:
       file.file: {}
       note.Status: {}
