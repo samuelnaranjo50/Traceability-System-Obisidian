@@ -27,13 +27,15 @@ const wordB = '@end'
 ]}
   */
 
-/*
-@Param itemsObj: The object containing the files array of objects with paths and name
-@Param storageStructure: The empty object where the Identifiers will be mapped to the files that mention them
-@Param regexStart: Key identifier from where to select data
-@Param regexEnd: Key identifier end of the selection
-@Param acceptedIdentifiers: The identifiers the code should select and map
-*/
+/**
+ * @param {import('./TraceabilityPipeline').DirectoryAndFileMap} itemsObj - The object containing the files array of objects with paths and name
+ * @param {import('./TraceabilityPipeline').ArtifactRelatedFileConnection} storageStructure - The empty object where the artifacts will map the files that mention them
+ * @param {RegExp} regexStart - Key identifier from where to select relationship  data
+ * @param {RegExp} regexEnd - Key identifier end of the selection
+ * @param {string[]} acceptedIdentifiers: The identifiers the code should select and map (valid artifact dentifiers)
+ */
+
+
 
 
 //put this in a helper ->>
@@ -77,7 +79,7 @@ export default function ExtractDataAndMatch(itemsObj, storageStructure, regexSta
 
           console.log('DEBUG CURRENT: Possible identifiers extracted: ',  id[0]); // Tempo log
 
-          const artifactFormatMatch = id[0].match(artifactIdentifierRegex); // Takes the actual identifier and number text
+          const artifactFormatMatch = id[0].match(artifactIdentifierRegex); // Takes the actual identifier and number text e.g: "REQ-000"
           
 
           if (artifactFormatMatch != null) { //If the are actual values with the required format

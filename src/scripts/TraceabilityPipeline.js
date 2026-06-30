@@ -1,3 +1,5 @@
+// @trace REQ-020 ADR-006
+
 import { error } from 'node:console';
 import path from 'node:path';
 import fs, {readFileSync } from "node:fs";
@@ -41,7 +43,7 @@ class MultiClassification extends Error{
 
 /**
 * 2. Master Object
-* @typedef {Record<string, TraceableFile[]>} ArtifactRelatedFileConnection
+* @typedef {Record<string, TraceableFile[]>} ArtifactRelatedFileConnection - Key is artifact with number e.g: "REQ-000", "ADR-000"
 */
 
 /**
@@ -78,7 +80,7 @@ export default class TraceabilityPipeline{
      * Finds the file where your algorithm will need to write the Artifact connections 
      * @param {artifactName} artifact - The artifact fo find with the algorithm
      * @param {innerItem[]} files - An array of project files
-     * @param {regexExtractor} titleArtifactIdentifierReg - The expression to select the artifact from the title
+     * @param {regexExtractor} titleArtifactIdentifierReg - The expression to select the artifact from the title e.g: From TSO-ADR-000 the regex will select ADR
      * @param {regexExtractor} titleFileNameReg - The expression to select name given to the file
      * @returns {string} Valid path not repeated artifact 
      */
@@ -138,10 +140,11 @@ export default class TraceabilityPipeline{
      * @param {classificationGuidelines} guidelines
      * @param {regexExtractor} fileArtifactIdentifierReg - Selects only the artifact e.g: ("PRO-REQ-001" will extract "REQ")
      * @param {regexExtractor} fileExtensionExtractionReg - Selects only the extension after the "."  e.g: ("myFile.test.js" will extract "test.js")
+     * @param {string[]} systemArtifacts - Valid system artifacts list
      * @returns {classifyData} - Object with classification
      */
 
-    static classifyArtifactConnections(connectedFilesInput, guidelines, fileArtifactIdentifierReg, fileExtensionExtractionReg){
+    static classifyArtifactConnections(connectedFilesInput, guidelines, fileArtifactIdentifierReg, fileExtensionExtractionReg, systemArtifacts){
 
         const currentClasification = {
             "📕 Architecture": [],
@@ -181,16 +184,16 @@ export default class TraceabilityPipeline{
             // Notice: The string added to classification must match the currentClasification clasifications keys
 
             if(artifactIdentfier && systemArtifacts.includes(artifactIdentfier)){
-                if(extensionClassification.Architecture.includes(artifactIdentfier)) classification.add('📕 Architecture');
-                if(extensionClassification.Requirements.includes(artifactIdentfier)) classification.add('📓 Requirements');
-                if(extensionClassification.Prototypes.includes(artifactIdentfier/*Should be changed to custom regex for proto*/ ))classification.add("🧪 Prototypes");
+                if(guidelines.Architecture.includes(artifactIdentfier)) classification.add('📕 Architecture');
+                if(guidelines.Requirements.includes(artifactIdentfier)) classification.add('📓 Requirements');
+                if(guidelines.Prototypes.includes(artifactIdentfier/*Should be changed to custom regex for proto*/ ))classification.add("🧪 Prototypes");
             }
              
             // Defining logic base on extension
             if(extension){
-                if(extensionClassification.Core.includes(extension)) classification.add('⚙️ Core Logic (Backend/Systems)') ;
-                if(extensionClassification.Client.includes(extension)) classification.add('🎨 Client Layer (Frontend/UI)');
-                if(extensionClassification.Verification.includes(extension)) classification.add('🛡️ Verification (Tests & Config)');
+                if(guidelines.Core.includes(extension)) classification.add('⚙️ Core Logic (Backend/Systems)') ;
+                if(guidelines.Client.includes(extension)) classification.add('🎨 Client Layer (Frontend/UI)');
+                if(guidelines.Verification.includes(extension)) classification.add('🛡️ Verification (Tests & Config)');
             }
 
             // Defining if should be clasifying as other  
@@ -262,7 +265,8 @@ export default class TraceabilityPipeline{
                  * @type {TraceableFile} fileObj
                  */
                 // Find the relative path from artifact to the connected file
-                const relativeFilePath = path.relative(artifactPath, fileObj.path);
+                const artifactDir = path.dirname(artifactPath)
+                const relativeFilePath = path.relative(artifactDir, fileObj.path);
 
                 const nameWithoutExtension = fileObj.name.match(fileAvoidExtensionReg)?.[0];
 

@@ -15,7 +15,7 @@ Description: A script that updates the links of code files trigger by a commit
 **So that** there is no need to manually refactor of links when name or folder is change or need to think about the path to the file. This way I avoid the debt of having broken links across the traceability system
 
 ## Acceptance Criteria
-> [!success] **Scenario:** General functionality
+> [!success] **Scenario:** Folder File Mapping
 > `Precondition - Action - Outcome`
 > 
 > **Given** the commit as been trigger , **When** the script begins , **Then** 
@@ -66,7 +66,18 @@ Description: A script that updates the links of code files trigger by a commit
 > **Given** .... , **When** .... , **Then**
 > 
 
-
+> [!todo] **Scenario:** Main execution thread updates artifact connections successfully.
+> `Precondition - Action - Outcome`
+> 
+> **Given** The target folder contains valid source files, files matching the "Avoid list", and target Markdown artifact files. , **When** When the main execution thread is executed against the target folder... , **Then** Then the system should:
+> 
+> 1. Ignore all files specified in the "Avoid list".
+>     
+> 2. Correctly classify and map the remaining source files to their corresponding artifacts.
+>     
+> 3. Generate a Markdown table containing the classified connections.
+>     
+> 4. Inject or update this table within the specific artifact Markdown file without altering the surrounding content.
 
 ## Analytical Breakdown
 

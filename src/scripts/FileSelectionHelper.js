@@ -4,9 +4,16 @@ import path from "node:path";
 // ALGORITHM PURPOSE:
 // - Finds files & directories. Stores the files data in an object of arrays
 
-export function SearchAndDivide(folderPath, excludeList, arrObjItems) {
+/**
+ * 
+ * @param {string} folderPath - Must be the path of the folder over which the files must be scan and mapped be perform
+ * @param {string[]} excludeList - Files that shouldn't be stored
+ * @param {import("./TraceabilityPipeline").DirectoryAndFileMap} mapOfDirsAndFilesObj 
+ */
+
+export default function SearchAndDivide(folderPath, excludeList, mapOfDirsAndFilesObj) {
   try {
-    const arrItems = fs.readdirSync(folderPath, { withFileTypes: true });
+    const arrItems = fs.readdirSync(folderPath, { withFileTypes: true }); 
     const filteredItems = arrItems.filter(
       (item) => !excludeList.includes(item.name),
     );
@@ -15,11 +22,11 @@ export function SearchAndDivide(folderPath, excludeList, arrObjItems) {
     // Separating files from directories
     filteredItems.forEach((item) => {
       if (item.isFile()) {
-        arrObjItems.files.push(item);
+        mapOfDirsAndFilesObj.files.push(item);
       } else {
         // If item as been added then avoid adding it again and delete it Specially directories
 
-        arrObjItems.dirs.push(item);
+        mapOfDirsAndFilesObj.dirs.push(item);
       }
     });
 
@@ -29,31 +36,31 @@ export function SearchAndDivide(folderPath, excludeList, arrObjItems) {
     // - The stop condition is the directories array being completely empty, indicating all dirs have been read and files extracted
     */
 
-    const currentFolderLocation = arrObjItems.dirs.findIndex(
-      (dir) => path.join(dir.path, dir.name) === folderPath,
+    const currentFolderLocation = mapOfDirsAndFilesObj.dirs.findIndex(
+      (dir) => path.join(dir.path, dir.name) === folderPath, //Checks if the item is actually the scanned directory and figure out its index!
     ); // Breaks once true returning the index of that elements otherwise -1
 
     console.log("Index of found element: ", currentFolderLocation);
 
     if (currentFolderLocation != -1) {
-      console.log("Item to pop ", arrObjItems.dirs[currentFolderLocation]);
-      arrObjItems.dirs.splice(currentFolderLocation, 1); // Splice deletes the element at a given index and a number of elements from that index 
+      console.log("Item to pop ", mapOfDirsAndFilesObj.dirs[currentFolderLocation]);
+      mapOfDirsAndFilesObj.dirs.splice(currentFolderLocation, 1); // Splice deletes the element at a given index and a number of elements from that index 
     }
-    console.log("Dirs state after pop ", arrObjItems.dirs);
+    console.log("Dirs state after pop ", mapOfDirsAndFilesObj.dirs);
 
-    console.log("Lenght of dir: ", arrObjItems.dirs.length);
+    console.log("Lenght of dir: ", mapOfDirsAndFilesObj.dirs.length);
 
     // Recursive call when directories to explore and extract but also works as stop condition
-    if (arrObjItems.dirs.length > 0) {
-      arrObjItems.dirs.forEach((dir) => {
+    if (mapOfDirsAndFilesObj.dirs.length > 0) {
+      mapOfDirsAndFilesObj.dirs.forEach((dir) => {
         SearchAndDivide(
           path.join(dir.path, dir.name),
           excludeList,
-          arrObjItems,
+          mapOfDirsAndFilesObj,
         );
       });
     } else {
-      return arrObjItems;
+      return mapOfDirsAndFilesObj;
     }
   } catch (error) {
     console.log("Program did not found and divide, this is the error:", error);
